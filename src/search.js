@@ -11,12 +11,18 @@ class Search extends Component {
         this.setState({
             query : query
         })
+        this.getBooks(query)
     }
 
     getBooks = (query) => {
-        BooksAPI.search(query).then((searchBooks)=>{
-            this.setState({searchBooks})
-        })
+        if (query) {
+            BooksAPI.search(query).then((searchBooks)=>{
+                this.setState({searchBooks})
+            })
+        }
+        else {
+            this.setState({searchBooks : []})
+        }
     }
 
     render() {
@@ -38,7 +44,9 @@ class Search extends Component {
                     </div>
                 </div>
                 <div className="search-books-results">
-                    <ol className="books-grid"></ol>
+                    <ol className="books-grid">
+
+                    </ol>
                 </div>
             </div>
         )
