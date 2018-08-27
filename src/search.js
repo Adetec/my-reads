@@ -45,7 +45,11 @@ class Search extends Component {
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
-
+                        {
+                            this.state.searchBooks.map(book =>(
+                                <li key={book.id}>{book.title}</li>
+                            ))
+                        }
                     </ol>
                 </div>
             </div>
