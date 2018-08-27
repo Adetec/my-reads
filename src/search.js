@@ -12,6 +12,13 @@ class Search extends Component {
             query : query
         })
     }
+
+    getBooks = (query) => {
+        BooksAPI.search(query).then((searchBooks)=>{
+            this.setState({searchBooks})
+        })
+    }
+
     render() {
         return (
             <div className="search-books">
