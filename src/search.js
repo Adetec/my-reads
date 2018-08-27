@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 class Search extends Component {
     state = {
-        query : ''
+        query : '',
+        searchBooks : []
     }
 
     updateQuery = (query) => {
