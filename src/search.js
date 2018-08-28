@@ -59,7 +59,6 @@ class Search extends Component {
                                 this.props.books.map(book =>{
                                     if (book.id === bookSearched.id) {
                                         bookSearched.shelf = book.shelf
-                                        console.log(bookSearched) 
                                     }
                                   return bookSearched.shelf
                                 })
