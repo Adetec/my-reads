@@ -52,10 +52,25 @@ class Search extends Component {
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
+                        
                         {
-                            this.state.searchBooks.map(book =>(
-                                <li key={book.id}><Book book={book} changeShelf = {this.props.changeShelf}/></li>
-                            ))
+                            this.state.searchBooks.map(bookSearched =>{
+                                let shelfBook;
+                                this.props.books.map(pikedBook =>{
+                                    if (pikedBook.id === bookSearched.id) {
+                                        shelfBook = pikedBook.shelf
+                                        console.log(pikedBook.id, bookSearched.id)
+                                    } else {
+                                        shelfBook = 'none'
+                                    }
+                                    BooksAPI.update(bookSearched, shelfBook)
+                                  return bookSearched.shelf = shelfBook
+                                })
+                                
+                                return(
+                                    <li key={bookSearched.id}><Book book={bookSearched} changeShelf = {this.props.changeShelf}/></li>
+                                )
+                            })
                         }
                     </ol>
                 </div>
