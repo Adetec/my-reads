@@ -2,7 +2,6 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-// Import needed components
 import Main  from './main'
 import Search from './search'
 
@@ -33,6 +32,7 @@ class BooksApp extends React.Component {
   render() {// render UI
     return (
       <div className="app">
+        {/* Set route app */}
         <Route exact path='/search' render={() => (
           < Search books = {this.state.books}  changeShelf = {this.changeShelf}/>
         )} />
