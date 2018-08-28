@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
+// Import needed components
 import Main  from './main'
 import Search from './search'
 
@@ -15,17 +16,17 @@ class BooksApp extends React.Component {
      */
     books : [],
   }
-
+  // Create lifecycle event to fetch books from BooksApi component
   componentDidMount() {
-    BooksAPI.getAll().then((books)=>{
-      this.setState({books})
-      console.log(this.state.books)
+    BooksAPI.getAll().then((books)=>{// When promise is resolved
+      this.setState({books})// Push books fetched in books array
     })
   }
 
+  // Create shelf changer func
   changeShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf)
-    console.log(`done, You moved the book to the ${shelf} shelf` )
+    BooksAPI.update(book, shelf)// Update book shelf when book is moved to another shelf by user
+    alert(`done, You moved the book to the '${shelf}' shelf` )// Display alert to user 
     BooksAPI.getAll().then((books)=>{
       this.setState({books})
       console.log(this.state.books)
