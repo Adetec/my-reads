@@ -63,7 +63,6 @@ class Search extends Component {
                                     } else {
                                         shelfBook = 'none'
                                     }
-                                    BooksAPI.update(bookSearched, shelfBook)
                                   return bookSearched.shelf = shelfBook
                                 })
                                 
