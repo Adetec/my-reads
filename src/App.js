@@ -27,10 +27,10 @@ class BooksApp extends React.Component {
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf)// Update book shelf when book is moved to another shelf by user
     alert(`done, You moved the book to the '${shelf}' shelf` )// Display alert to user 
-    this.componentDidMount()
+    this.componentDidMount()// Call the lifecycle event
   }
   
-  render() {
+  render() {// render UI
     return (
       <div className="app">
         <Route exact path='/search' render={() => (
